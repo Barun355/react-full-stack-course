@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function App() {
   const [backgroundColor, setBackgroundColor] = useState("red")
-
+  
   return (
     <div className="h-screen w-screen flex justify-center items-end p-10" style={{
       backgroundColor: backgroundColor
