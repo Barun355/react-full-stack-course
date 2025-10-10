@@ -8,6 +8,7 @@ import Contact from "./components/Contact.jsx";
 import Github from "./components/Github.jsx"
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Layout.jsx";
+import GitPage from "./components/GitPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,13 @@ const router = createBrowserRouter([
       },
       {
         path: "github",
-        element: <Github />
+        element: <Github />,
+        children: [
+          {
+            path: ":gitUserName",
+            element: <GitPage />
+          }
+        ]
       }
     ]
   },

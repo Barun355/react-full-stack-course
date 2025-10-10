@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
 
 export default function Github() {
   const [imageUrl, setImageUrl] = useState("");
@@ -6,7 +7,7 @@ export default function Github() {
   const [following, setFollowing] = useState(0)
 
   useEffect(() => {
-    fetch("https://api.github.com/users/hiteshchoudhary")
+    fetch("https://api.github.com/users/Barun355")
       .then((res) => res.json())
       .then((data) => {
         setImageUrl(data.avatar_url);
@@ -63,7 +64,7 @@ export default function Github() {
         </div>
       </div>
       <div className="flex justify-center items-center">
-        // Add dynmaic content
+        <Outlet />
       </div>
     </div>
   );
