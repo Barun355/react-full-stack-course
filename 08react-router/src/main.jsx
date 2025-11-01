@@ -34,6 +34,10 @@ const router = createBrowserRouter([
           {
             path: ":gitUserName",
             element: <GitPage />
+          },
+          {
+            path: "repo",
+            element: <GitRepo />
           }
         ]
       }
