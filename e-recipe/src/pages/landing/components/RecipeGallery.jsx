@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "../../../components/ui/Button";
 
 function RecipeGallery({ recipes, onViewAllClick }) {
   return (

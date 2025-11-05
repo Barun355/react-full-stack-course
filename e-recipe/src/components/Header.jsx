@@ -1,4 +1,4 @@
-import { ChefHat } from "lucide-react"
+import { ChefHat } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
@@ -6,16 +6,14 @@ const Header = () => {
     <nav
       className="sticky top-0 z-50 border-b"
       style={{
-        backgroundColor: "var(--bg-primary)",
+        backgrourecipesndColor: "var(--bg-primary)",
         borderColor: "var(--border)",
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div
-            className="flex items-center gap-2 cursor-pointer"
-          >
+          <div className="flex items-center gap-2 cursor-pointer">
             <div
               className="w-10 h-10 rounded-full flex items-center justify-center"
               style={{
@@ -50,7 +48,6 @@ const Header = () => {
                 Home
               </NavLink>
             </div>
-
             {/* Dark Mode Toggle */}
           </div>
         </div>

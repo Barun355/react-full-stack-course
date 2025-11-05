@@ -1,6 +1,16 @@
 import React from "react";
+import { Button } from "../../../components/ui/Button";
+import { RecipeCard } from "../../../components/RecipeCard";
+import { ArrowRight } from "lucide-react";
+import { getFeaturedRecipes } from "../../../utils";
+import { useNavigate } from "react-router-dom";
 
-function FeatureRecipes({ featuredRecipes, onRecipeClick, onViewAllClick }) {
+function FeatureRecipes() {
+
+  const navigate = useNavigate();
+
+  const featuredRecipes = getFeaturedRecipes();
+
   return (
     <section className="py-16 px-4" id="featured-recipes">
       <div className="max-w-7xl mx-auto">
@@ -27,6 +37,7 @@ function FeatureRecipes({ featuredRecipes, onRecipeClick, onViewAllClick }) {
             variant="ghost"
             className="hidden md:flex items-center gap-2 font-['Lato'] font-semibold"
             style={{ color: "var(--brand-primary)" }}
+            onClick={() => navigate('/recipes')}
           >
             View All
             <ArrowRight className="w-4 h-4" />
@@ -34,7 +45,14 @@ function FeatureRecipes({ featuredRecipes, onRecipeClick, onViewAllClick }) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          // TODO: Use the featuredRecipes prop to render recipe cards here
+          {featuredRecipes.map((recipe) => (
+              <RecipeCard
+                key={recipe.id}
+                recipe={recipe}
+                onClick={() => navigate(`/recipes/${recipe.id}`)}
+                featured
+              />
+            ))}
         </div>
       </div>
     </section>

@@ -1,6 +1,12 @@
 import React from "react";
+import { getHighProteinRecipeByTime } from "../../../utils";
+import { ArrowRight, Clock, Star, TrendingUp } from "lucide-react";
+import { Button } from "../../../components/ui/Button";
+import ImageWithFallback from "../../../components/ImageWithFallback"
 
 const Hero = () => {
+
+    const heroRecipe = getHighProteinRecipeByTime();
 
     const getTimeGreeting = () => {
         // implement a function that returns greeting based on time of day

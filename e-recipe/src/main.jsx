@@ -2,10 +2,10 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import Landing from './pages/landing'
-import Recipes from './pages/recipes'
-import LandingLayout from './pages/landing-layout'
-import RecipeDetailPage from './pages/recipe-detail'
+import Landing from './pages/landing/index'
+import Recipes from './pages/landing/recipes'
+import LandingLayout from './pages/landing/landing-layout'
+import RecipeDetailPage from './pages/landing/recipe-detail'
 
 
 const router = createBrowserRouter([

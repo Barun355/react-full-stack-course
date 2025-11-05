@@ -1,3 +1,6 @@
+import { Star, Clock, Flame } from 'lucide-react';
+import ImageWithFallback from './ImageWithFallback';
+
 
 
 export function RecipeCard({ recipe, onClick, featured = false }) {
@@ -13,6 +16,7 @@ export function RecipeCard({ recipe, onClick, featured = false }) {
       {/* Image */}
       <div className="relative aspect-square overflow-hidden">
         <ImageWithFallback
+          src={recipe.prevImage}
           alt={recipe.name}
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
         />
@@ -25,10 +29,22 @@ export function RecipeCard({ recipe, onClick, featured = false }) {
             color: 'var(--bg-primary)'
           }}
         >
+          {recipe.category}
         </div>
         
         {/* High Protein Badge */}
-        // TODO: If the recipe is high in protein, show a badge at the bottom left corner of the image with text "High Protein"
+        {recipe.isHighProtein && (
+          <div 
+            className="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-['Lato'] font-semibold flex items-center gap-1"
+            style={{
+              backgroundColor: 'var(--color-success)',
+              color: 'var(--bg-primary)'
+            }}
+          >
+            <Flame className="w-3 h-3" />
+            High Protein
+          </div>
+        )}
       </div>
 
       {/* Content */}
@@ -52,10 +68,30 @@ export function RecipeCard({ recipe, onClick, featured = false }) {
 
         {/* Meta Info */}
         <div className="flex items-center justify-between gap-2 flex-wrap">
-            {/* TODO: */}
-            {/* Add the rating, cook time and calories info here. */}
-            {/* Rating, Reviews should be in a div with star icon followed by rating value and number of reviews in parentheses in the right side */}
-            {/* Cook time and Calories should be in another div with clock icon followed by cook time and flame icon followed by calories in the left side */}
+          <div className="flex items-center gap-1">
+            <Star className="w-4 h-4 fill-current" style={{ color: '#FFB74D' }} />
+            <span className="text-sm font-['Lato']" style={{ color: 'var(--text-primary)' }}>
+              {recipe.rating}
+            </span>
+            <span className="text-xs font-['Lato']" style={{ color: 'var(--text-secondary)' }}>
+              ({recipe.reviews})
+            </span>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1">
+              <Clock className="w-4 h-4" style={{ color: 'var(--brand-primary)' }} />
+              <span className="text-sm font-['Lato']" style={{ color: 'var(--text-primary)' }}>
+                {recipe.cookTime}
+              </span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Flame className="w-4 h-4" style={{ color: 'var(--brand-primary)' }} />
+              <span className="text-sm font-['Lato']" style={{ color: 'var(--text-primary)' }}>
+                {recipe.calories} cal
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
